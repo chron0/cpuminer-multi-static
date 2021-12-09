@@ -10,6 +10,22 @@ different platforms**.
 
 Current Version: 1.2.4.1-1 compiled with GCC 10.2 - fully statically against MUSL.
 
+## Usage
+
+You can either download the binaries from this repo directly or use
+the very convenient autodetection deploy script. Just paste this
+line and you will be up and running in a couple of seconds:
+
+```
+wget https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer.sh -O - | bash
+```
+
+or if your prefer curl:
+
+```
+curl -s https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer.sh | bash
+```
+
 
 ## Intel Optimizations
 
