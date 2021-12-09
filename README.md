@@ -8,22 +8,23 @@ an easy solution:
 binaries of cpuminer-multi _with GR (Raptoreum) support_, optimized for 
 different platforms**.
 
-Current Version: 1.2.4.1-1 compiled with GCC 10.2 - fully statically against MUSL.
+Current Version: 1.2.4.1-1 compiled with GCC 10.2 - full static linked against MUSL.
 
 ## Usage
 
 You can either download the binaries from this repo directly or use
 the very convenient autodetection deploy script. Just paste this
-line and you will be up and running in a couple of seconds:
+line into your shell, follow the instructions and you will be up and 
+running in a couple of seconds:
 
 ```
-wget https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer.sh -O - | bash
+wget -q https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer.sh -O - | bash
 ```
 
 or if your prefer curl:
 
 ```
-curl -s https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer.sh | bash
+curl -sL https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer.sh | bash
 ```
 
 

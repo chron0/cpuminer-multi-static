@@ -11,15 +11,18 @@ function start_mining {
   INST="$1"
   
   if [ ! -f "cpuminer-${INST}" ]; then
-    echo -e "Downloading ${SEA}${1}${NC} binary..."
-    wget -q https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer-${INST}
+    echo -en "Downloading ${SEA}${1}${NC} binary ... "
+    wget -q  https://github.com/chron0/cpuminer-multi-static/raw/main/cpuminer-${INST}
+    echo -e  "DONE"
+    chmod +x cpuminer-${INST}
   fi
 
   if [ ! -f "config.json" ]; then
-    echo -e "Downloading config.json template..."
-    wget -q https://github.com/chron0/cpuminer-multi-static/raw/main/config.json
-    read -p "${YELLOW}Enter your RTM Wallet Address:${NC} " RTM_Address
-    read -p "${YELLOW}Enter a Name for this Worker:${NC} " Worker_Name
+    echo -en "Downloading config.json template ... "
+    wget -q  https://github.com/chron0/cpuminer-multi-static/raw/main/config.json
+    echo -e  "DONE"
+    read -p  $'Enter your \e[35mRTM Wallet Address\e[0m: ' RTM_Address
+    read -p  $'Enter a \e[35mName for this Worker\e[0m: ' Worker_Name
     USER="${RTM_Address}.${Worker_Name}"
     sed -i "s|YOUR_RTM_ADDRESS|$USER|g" config.json
   fi
@@ -27,6 +30,9 @@ function start_mining {
   echo -e "Starting Miner..."
   ./cpuminer-${INST} -c config.json
 
+  echo -e ""
+  echo -e "Miner has been stopped - to run it again use:"
+  echo -e "./cpuminer-${INST} -c config.json"
   exit
 }
 
